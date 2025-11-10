@@ -8,6 +8,7 @@ package ourdocs;
 import java.awt.Color;
 import java.io.File;
 import javax.swing.JEditorPane;
+import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.Document;
@@ -739,6 +740,11 @@ public class MainJFrame extends javax.swing.JFrame {
         helpMenu.setText("Help");
 
         aboutMenuItem.setText("About");
+        aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutMenuItemActionPerformed(evt);
+            }
+        });
         helpMenu.add(aboutMenuItem);
 
         MenuBar.add(helpMenu);
@@ -847,6 +853,27 @@ public class MainJFrame extends javax.swing.JFrame {
     private void pasteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasteMenuItemActionPerformed
         PasteAction.apply(textArea);
     }//GEN-LAST:event_pasteMenuItemActionPerformed
+
+    private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
+        String message = "OURDOCS!\n" +
+                 "Built by: Group 32\n" +
+                 "\n" +
+                 "Features:\n" +
+                 "• Live Preview\n" +
+                 "• Format Toolbar (Bold, Italic, Headings, Code Blocks)\n" +
+                 "• File Operations (New, Open, Save)\n" +
+                 "• Edit Menu (Undo, Redo, Cut, Copy, Paste)\n" +
+                 "• Word Counter \n" +
+                 "\n" +
+                 "Version: 1.0";
+
+    JOptionPane.showMessageDialog(
+        this,
+        message,
+        "About OurDocs",
+        JOptionPane.INFORMATION_MESSAGE
+    );
+    }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
