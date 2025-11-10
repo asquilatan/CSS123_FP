@@ -17,7 +17,6 @@ public class NewJFrame extends javax.swing.JFrame {
     public NewJFrame() {
         initComponents();
         System.out.println("TESTING (by allen)");
-        System.out.println("hello this is a test hehe");
     }
 
     /**
