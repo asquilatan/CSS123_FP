@@ -1,10 +1,6 @@
 TODO:
 - [ ] Timer Events
   - Auto Save
-- [ ] File Menu
-  - New
-  - Open
-  - Save
 - [ ] Edit Menu
   - Undo
   - Redo
