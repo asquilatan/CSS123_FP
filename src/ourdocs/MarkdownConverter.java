@@ -35,7 +35,7 @@ public class MarkdownConverter {
         safe = safe.replaceAll("\\*\\*(.*?)\\*\\*", "<b>$1</b>");
         safe = safe.replaceAll("\\*(.*?)\\*", "<i>$1</i>");
         safe = safe.replaceAll("~~(.*?)~~", "<s>$1</s>");
-        safe = safe.replaceAll("(?s)```(.*?)```", "<pre style='background:#f8f8f8;padding:10px;border-radius:5px'>$1</pre>");
+        safe = safe.replaceAll("(?s)```(.*?)```", "<pre style='background:#f0f0f0;padding:10px;border-radius:5px'>$1</pre>");
         safe = safe.replaceAll("`(.*?)`", "<code style='background:#f0f0f0;padding:2px;border-radius:3px'>$1</code>");
         
 //         Headers and Line-based elements
