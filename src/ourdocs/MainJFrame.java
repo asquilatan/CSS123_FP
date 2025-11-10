@@ -105,6 +105,7 @@ public class MainJFrame extends javax.swing.JFrame {
         newMenuItem = new javax.swing.JMenuItem();
         openMenuItem = new javax.swing.JMenuItem();
         saveMenuItem = new javax.swing.JMenuItem();
+        saveAsMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         undoMenuItem = new javax.swing.JMenuItem();
         redoMenuItem = new javax.swing.JMenuItem();
@@ -633,6 +634,10 @@ public class MainJFrame extends javax.swing.JFrame {
         saveMenuItem.setText("Save");
         fileMenu.add(saveMenuItem);
 
+        saveAsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        saveAsMenuItem.setText("Save as");
+        fileMenu.add(saveAsMenuItem);
+
         MenuBar.add(fileMenu);
 
         editMenu.setText("Edit");
@@ -804,6 +809,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel quoteButton;
     private javax.swing.JLabel quoteButtonIcon;
     private javax.swing.JMenuItem redoMenuItem;
+    private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
     private javax.swing.JPanel spacer1;
     private javax.swing.JSplitPane splitPane;
