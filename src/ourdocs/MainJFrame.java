@@ -5,6 +5,12 @@
  */
 package ourdocs;
 
+import java.awt.Color;
+import javax.swing.JEditorPane;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.text.html.HTMLEditorKit;
+
 /**
  *
  * @author sobre
@@ -16,6 +22,37 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     public MainJFrame() {
         initComponents();
+        setupPreviewPane();
+        setupDocumentListener();
+    }
+    
+    private void setupPreviewPane() {
+        previewPane.putClientProperty(JEditorPane.HONOR_DISPLAY_PROPERTIES, true);
+        previewPane.setEditorKit(new HTMLEditorKit());
+    }
+
+    private void setupDocumentListener() {
+        textArea.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                updatePreview();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                updatePreview();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                updatePreview();
+            }
+
+            private void updatePreview() {
+                String html = MarkdownHelper.convertToHtml(textArea.getText());
+                previewPane.setText(html);
+            }
+        });
     }
 
     /**
@@ -102,7 +139,9 @@ public class MainJFrame extends javax.swing.JFrame {
         jScrollPane1.setBorder(null);
         jScrollPane1.setForeground(new java.awt.Color(242, 242, 242));
 
+        previewPane.setEditable(false);
         previewPane.setBackground(new java.awt.Color(251, 251, 251));
+        previewPane.setContentType("text/html"); // NOI18N
         previewPane.setPreferredSize(new java.awt.Dimension(20, 20));
         jScrollPane1.setViewportView(previewPane);
 
@@ -634,59 +673,60 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boldButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boldButtonMouseReleased
+        MarkdownHelper.applyBold(textArea);
         System.out.println("bold");
     }//GEN-LAST:event_boldButtonMouseReleased
 
     private void italicButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_italicButtonMouseReleased
-        // TODO add your handling code here:
+        MarkdownHelper.applyItalic(textArea);
     }//GEN-LAST:event_italicButtonMouseReleased
 
     private void strikethroughButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_strikethroughButtonMouseReleased
-        // TODO add your handling code here:
+        MarkdownHelper.applyStrikethrough(textArea);
     }//GEN-LAST:event_strikethroughButtonMouseReleased
 
     private void inlineButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inlineButtonMouseReleased
-        // TODO add your handling code here:
+        MarkdownHelper.applyInlineCode(textArea);
     }//GEN-LAST:event_inlineButtonMouseReleased
 
     private void quoteButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quoteButtonMouseReleased
-        // TODO add your handling code here:
+        MarkdownHelper.applyBlockquote(textArea);
     }//GEN-LAST:event_quoteButtonMouseReleased
 
     private void bulletButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bulletButtonMouseReleased
-        // TODO add your handling code here:
+        MarkdownHelper.applyBulletList(textArea);
     }//GEN-LAST:event_bulletButtonMouseReleased
 
     private void codeButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_codeButtonMouseReleased
-        // TODO add your handling code here:
+        MarkdownHelper.applyCodeBlock(textArea);
     }//GEN-LAST:event_codeButtonMouseReleased
 
     private void spacer1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spacer1MouseReleased
-        // TODO add your handling code here:
+        // meow meow meow
     }//GEN-LAST:event_spacer1MouseReleased
 
     private void h1ButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_h1ButtonMouseReleased
-        // TODO add your handling code here:
+        MarkdownHelper.applyHeading1(textArea);
     }//GEN-LAST:event_h1ButtonMouseReleased
 
     private void h2ButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_h2ButtonMouseReleased
-        // TODO add your handling code here:
+        MarkdownHelper.applyHeading2(textArea);
     }//GEN-LAST:event_h2ButtonMouseReleased
 
     private void h3ButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_h3ButtonMouseReleased
-        // TODO add your handling code here:
+        MarkdownHelper.applyHeading3(textArea);
     }//GEN-LAST:event_h3ButtonMouseReleased
 
     private void h4ButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_h4ButtonMouseReleased
-        // TODO add your handling code here:
+        MarkdownHelper.applyHeading4(textArea);
     }//GEN-LAST:event_h4ButtonMouseReleased
 
     private void h5ButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_h5ButtonMouseReleased
-        // TODO add your handling code here:
+        MarkdownHelper.applyHeading5(textArea);
     }//GEN-LAST:event_h5ButtonMouseReleased
 
     private void h6ButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_h6ButtonMouseReleased
-        // TODO add your handling code here:
+        MarkdownHelper.applyHeading6(textArea);
     }//GEN-LAST:event_h6ButtonMouseReleased
 
     /**
