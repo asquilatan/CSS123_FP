@@ -36,12 +36,7 @@ public class MainJFrame extends javax.swing.JFrame {
         statusPanel = new javax.swing.JPanel();
         statusLabel = new javax.swing.JLabel();
         formatPanel = new javax.swing.JPanel();
-        boldButton = new javax.swing.JButton();
-        italicButton = new javax.swing.JButton();
-        heading1Button = new javax.swing.JButton();
-        heading2Button = new javax.swing.JButton();
-        bulletButton = new javax.swing.JButton();
-        boldButtonTemp = new javax.swing.JPanel();
+        boldButton = new javax.swing.JPanel();
         boldButtonIcon = new javax.swing.JLabel();
         MenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
@@ -60,72 +55,81 @@ public class MainJFrame extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(242, 242, 242));
 
+        splitPane.setBackground(new java.awt.Color(242, 242, 242));
+        splitPane.setForeground(new java.awt.Color(242, 242, 242));
+
+        jScrollPane2.setBackground(new java.awt.Color(242, 242, 242));
+        jScrollPane2.setBorder(null);
+        jScrollPane2.setForeground(new java.awt.Color(242, 242, 242));
+
+        textArea.setBackground(new java.awt.Color(255, 255, 255));
         textArea.setColumns(20);
         textArea.setRows(5);
+        textArea.setBorder(null);
         jScrollPane2.setViewportView(textArea);
 
         splitPane.setLeftComponent(jScrollPane2);
 
+        jScrollPane1.setBackground(new java.awt.Color(242, 242, 242));
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setForeground(new java.awt.Color(242, 242, 242));
+
+        previewPane.setBackground(new java.awt.Color(251, 251, 251));
+        previewPane.setPreferredSize(new java.awt.Dimension(20, 20));
         jScrollPane1.setViewportView(previewPane);
 
         splitPane.setRightComponent(jScrollPane1);
 
         getContentPane().add(splitPane, java.awt.BorderLayout.CENTER);
 
+        statusPanel.setBackground(new java.awt.Color(242, 242, 242));
         statusPanel.setPreferredSize(new java.awt.Dimension(400, 15));
         statusPanel.setLayout(new java.awt.BorderLayout());
 
+        statusLabel.setFont(new java.awt.Font("Helvetica", 0, 12)); // NOI18N
+        statusLabel.setForeground(new java.awt.Color(30, 30, 30));
         statusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         statusLabel.setText("Ready");
+        statusLabel.setMaximumSize(new java.awt.Dimension(32, 32));
+        statusLabel.setPreferredSize(new java.awt.Dimension(32, 32));
         statusPanel.add(statusLabel, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(statusPanel, java.awt.BorderLayout.SOUTH);
 
-        formatPanel.setPreferredSize(new java.awt.Dimension(400, 80));
+        formatPanel.setBackground(new java.awt.Color(242, 242, 242));
+        formatPanel.setForeground(new java.awt.Color(242, 242, 242));
+        formatPanel.setPreferredSize(new java.awt.Dimension(400, 60));
 
-        boldButton.setText("Bold");
-        formatPanel.add(boldButton);
-
-        italicButton.setText("Itlalic");
-        formatPanel.add(italicButton);
-
-        heading1Button.setText("Heading 1");
-        formatPanel.add(heading1Button);
-
-        heading2Button.setText("Heading 2");
-        formatPanel.add(heading2Button);
-
-        bulletButton.setText("Bullet List");
-        formatPanel.add(bulletButton);
-
-        boldButtonTemp.setPreferredSize(new java.awt.Dimension(30, 30));
+        boldButton.setBackground(new java.awt.Color(242, 242, 242));
+        boldButton.setPreferredSize(new java.awt.Dimension(30, 30));
 
         boldButtonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon01_bold.png"))); // NOI18N
         boldButtonIcon.setMinimumSize(new java.awt.Dimension(30, 30));
 
-        javax.swing.GroupLayout boldButtonTempLayout = new javax.swing.GroupLayout(boldButtonTemp);
-        boldButtonTemp.setLayout(boldButtonTempLayout);
-        boldButtonTempLayout.setHorizontalGroup(
-            boldButtonTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout boldButtonLayout = new javax.swing.GroupLayout(boldButton);
+        boldButton.setLayout(boldButtonLayout);
+        boldButtonLayout.setHorizontalGroup(
+            boldButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 30, Short.MAX_VALUE)
-            .addGroup(boldButtonTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(boldButtonTempLayout.createSequentialGroup()
+            .addGroup(boldButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(boldButtonLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(boldButtonIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
-        boldButtonTempLayout.setVerticalGroup(
-            boldButtonTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        boldButtonLayout.setVerticalGroup(
+            boldButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 30, Short.MAX_VALUE)
-            .addGroup(boldButtonTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(boldButtonTempLayout.createSequentialGroup()
+            .addGroup(boldButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(boldButtonLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(boldButtonIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        formatPanel.add(boldButtonTemp);
+        formatPanel.add(boldButton);
 
         getContentPane().add(formatPanel, java.awt.BorderLayout.PAGE_START);
 
@@ -219,19 +223,14 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar;
     private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JButton boldButton;
+    private javax.swing.JPanel boldButton;
     private javax.swing.JLabel boldButtonIcon;
-    private javax.swing.JPanel boldButtonTemp;
-    private javax.swing.JButton bulletButton;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JPanel formatPanel;
-    private javax.swing.JButton heading1Button;
-    private javax.swing.JButton heading2Button;
     private javax.swing.JMenu helpMenu;
-    private javax.swing.JButton italicButton;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
