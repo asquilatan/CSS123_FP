@@ -10,7 +10,9 @@ import java.io.File;
 import javax.swing.JEditorPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.text.Document;
 import javax.swing.text.html.HTMLEditorKit;
+import javax.swing.undo.UndoableEdit;
 import ourdocs.AutoSave;
 
 /**
@@ -28,6 +30,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         setupPreviewPane();
+        setupUndoManager();
         setupDocumentListener();
         
 //         Start auto-save with 1-minute interval (60,000 milliseconds)
@@ -39,8 +42,19 @@ public class MainJFrame extends javax.swing.JFrame {
         previewPane.setEditorKit(new HTMLEditorKit());
     }
 
+    private void setupUndoManager() {
+        undoManager = new javax.swing.undo.UndoManager();
+        undoManager.setLimit(100); 
+    }
+
     private void setupDocumentListener() {
-        textArea.getDocument().addDocumentListener(new DocumentListener() {
+        javax.swing.text.Document doc = textArea.getDocument();
+        doc.addUndoableEditListener(e -> {
+            undoManager.addEdit(e.getEdit());
+            updateMenuState();
+        });
+        
+        doc.addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
                 updatePreview();
@@ -60,6 +74,13 @@ public class MainJFrame extends javax.swing.JFrame {
                 String html = MarkdownHelper.convertToHtml(textArea.getText());
                 previewPane.setText(html);
             }
+        });
+    }
+    
+    public void updateMenuState() {
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            undoMenuItem.setEnabled(undoManager.canUndo());
+            redoMenuItem.setEnabled(undoManager.canRedo());
         });
     }
 

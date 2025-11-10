@@ -17,6 +17,11 @@ public class RedoAction {
         try {
             if (undoManager.canRedo()) {
                 undoManager.redo();
+                // Update the menu state to reflect current undo/redo availability
+                if (editor.getTopLevelAncestor() instanceof MainJFrame) {
+                    MainJFrame frame = (MainJFrame) editor.getTopLevelAncestor();
+                    frame.updateMenuState(); // This will update both undo and redo menu items
+                }
             }
         } catch (CannotRedoException ex) {
             System.out.println("Nothing to redo.");
