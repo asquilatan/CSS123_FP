@@ -4,10 +4,13 @@
  */
 package ourdocs;
 
+import javax.swing.JTextArea;
 /**
  *
  * @author allen
  */
 public class ApplyItalic {
-    
+    public static void apply(JTextArea editor) {
+        TextHelper.toggleWrap(editor, "*", "*");
+    }
 }

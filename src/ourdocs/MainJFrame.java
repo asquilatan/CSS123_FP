@@ -127,7 +127,6 @@ public class MainJFrame extends javax.swing.JFrame {
         jScrollPane2.setBorder(null);
         jScrollPane2.setForeground(new java.awt.Color(242, 242, 242));
 
-        textArea.setBackground(new java.awt.Color(255, 255, 255));
         textArea.setColumns(20);
         textArea.setRows(5);
         textArea.setBorder(null);
@@ -177,7 +176,6 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         boldButtonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon01_bold.png"))); // NOI18N
-        boldButtonIcon.setMinimumSize(new java.awt.Dimension(30, 30));
 
         javax.swing.GroupLayout boldButtonLayout = new javax.swing.GroupLayout(boldButton);
         boldButton.setLayout(boldButtonLayout);
@@ -187,7 +185,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(boldButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(boldButtonLayout.createSequentialGroup()
                     .addGap(0, 5, Short.MAX_VALUE)
-                    .addComponent(boldButtonIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boldButtonIcon)
                     .addGap(0, 5, Short.MAX_VALUE)))
         );
         boldButtonLayout.setVerticalGroup(
@@ -196,7 +194,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(boldButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(boldButtonLayout.createSequentialGroup()
                     .addGap(0, 5, Short.MAX_VALUE)
-                    .addComponent(boldButtonIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boldButtonIcon)
                     .addGap(0, 5, Short.MAX_VALUE)))
         );
 
@@ -623,15 +621,15 @@ public class MainJFrame extends javax.swing.JFrame {
 
         fileMenu.setText("File");
 
-        newMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        newMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         newMenuItem.setText("New");
         fileMenu.add(newMenuItem);
 
-        openMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        openMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
         openMenuItem.setText("Open");
         fileMenu.add(openMenuItem);
 
-        saveMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        saveMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         saveMenuItem.setText("Save");
         fileMenu.add(saveMenuItem);
 
@@ -639,19 +637,19 @@ public class MainJFrame extends javax.swing.JFrame {
 
         editMenu.setText("Edit");
 
-        undoMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        undoMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
         undoMenuItem.setText("Undo");
         editMenu.add(undoMenuItem);
 
-        redoMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        redoMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
         redoMenuItem.setText("Redo");
         editMenu.add(redoMenuItem);
 
-        cutMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        cutMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
         cutMenuItem.setText("Cut");
         editMenu.add(cutMenuItem);
 
-        copyMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        copyMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         copyMenuItem.setText("Copy");
         editMenu.add(copyMenuItem);
 

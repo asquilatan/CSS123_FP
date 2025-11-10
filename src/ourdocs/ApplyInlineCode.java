@@ -4,10 +4,14 @@
  */
 package ourdocs;
 
+import javax.swing.JTextArea;
+
 /**
  *
  * @author allen
  */
 public class ApplyInlineCode {
-    
+    public static void apply(JTextArea editor) {
+        TextHelper.toggleWrap(editor, "`", "`");
+    }
 }

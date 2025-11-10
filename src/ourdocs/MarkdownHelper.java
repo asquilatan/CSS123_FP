@@ -17,28 +17,28 @@ class MarkdownHelper {
     
 //    Per Character features
     public static void applyBold(JTextArea editor) {
-//        ApplyBold.apply(editor);
+        ApplyBold.apply(editor);
     }
     
     public static void applyItalic(JTextArea editor) {
-//        ApplyItalic.apply(editor);
+        ApplyItalic.apply(editor);
     }
     
     public static void applyStrikethrough(JTextArea editor) {
-//        ApplyStrikethrough.apply(editor);
+        ApplyStrikethrough.apply(editor);
     }
     
     public static void applyInlineCode(JTextArea editor) {
-//        ApplyInlineCode.apply(editor);
+        ApplyInlineCode.apply(editor);
     }
     
 //    Per Line features (like only 1 '>' is needed and the whole line changes)
     public static void applyBlockquote(JTextArea editor) {
-//        ApplyBlockquote.apply(editor);
+        ApplyBlockquote.apply(editor);
     }
     
     public static void applyBulletList(JTextArea editor) {
-//        ApplyBulletList.apply(editor);
+        ApplyBulletList.apply(editor);
     }
     
     public static void applyCodeBlock(JTextArea editor) {
@@ -47,27 +47,27 @@ class MarkdownHelper {
     
 //    Headings
     public static void applyHeading1(JTextArea editor) {
-//        ApplyHeading.apply(editor, 1);
+        ApplyHeading.apply(editor, 1);
     }
     
     public static void applyHeading2(JTextArea editor) {
-//        ApplyHeading.apply(editor, 2);
+        ApplyHeading.apply(editor, 2);
     }
     
     public static void applyHeading3(JTextArea editor) {
-//        ApplyHeading.apply(editor, 3);
+        ApplyHeading.apply(editor, 3);
     }
     
     public static void applyHeading4(JTextArea editor) {
-//        ApplyHeading.apply(editor, 4);
+        ApplyHeading.apply(editor, 4);
     }
     
     public static void applyHeading5(JTextArea editor) {
-//        ApplyHeading.apply(editor, 5);
+        ApplyHeading.apply(editor, 5);
     }
     
     public static void applyHeading6(JTextArea editor) {
-//        ApplyHeading.apply(editor, 6);
+        ApplyHeading.apply(editor, 6);
     }
     
 //     Preview conversion

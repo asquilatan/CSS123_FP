@@ -79,4 +79,28 @@ public class TextHelper {
 //        (wrapping was added)
         return false;
     }
+    
+    public static void insertAtLineStart(JTextArea editor, String prefix) {
+    try {
+        int caretPos = editor.getCaretPosition();
+        int line = editor.getLineOfOffset(caretPos);
+        int lineStart = editor.getLineStartOffset(line);
+        
+//          Check if line already starts with this prefix
+        String lineText = editor.getText(lineStart, 
+            Math.min(editor.getLineEndOffset(line) - lineStart, 100));
+        
+        if (lineText.startsWith(prefix)) {
+//          Remove prefix
+            editor.replaceRange("", lineStart, lineStart + prefix.length());
+        } else {
+//          Add prefix
+            editor.insert(prefix, lineStart);
+        }
+    } catch (Exception ex) {
+//          Fallback: append to end
+        editor.append("\n" + prefix);
+    }
+    }
 }
+

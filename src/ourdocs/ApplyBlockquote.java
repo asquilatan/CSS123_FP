@@ -4,10 +4,14 @@
  */
 package ourdocs;
 
+import javax.swing.JTextArea;
+
 /**
  *
  * @author allen
  */
 public class ApplyBlockquote {
-    
+    public static void apply(JTextArea editor) {
+        TextHelper.insertAtLineStart(editor, "> ");
+    }
 }
