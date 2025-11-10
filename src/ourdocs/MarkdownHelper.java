@@ -42,7 +42,7 @@ class MarkdownHelper {
     }
     
     public static void applyCodeBlock(JTextArea editor) {
-//        ApplyCodeBlock.apply(editor);
+        ApplyCodeBlock.apply(editor);
     }
     
 //    Headings
