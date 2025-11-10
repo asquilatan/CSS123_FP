@@ -38,6 +38,31 @@ public class MainJFrame extends javax.swing.JFrame {
         formatPanel = new javax.swing.JPanel();
         boldButton = new javax.swing.JPanel();
         boldButtonIcon = new javax.swing.JLabel();
+        italicButton = new javax.swing.JPanel();
+        italicButtonIcon = new javax.swing.JLabel();
+        strikethroughButton = new javax.swing.JPanel();
+        strikethroughButtonIcon = new javax.swing.JLabel();
+        inlineButton = new javax.swing.JPanel();
+        inlineButtonIcon = new javax.swing.JLabel();
+        quoteButton = new javax.swing.JPanel();
+        quoteButtonIcon = new javax.swing.JLabel();
+        bulletButton = new javax.swing.JPanel();
+        bulletButtonIcon = new javax.swing.JLabel();
+        codeButton = new javax.swing.JPanel();
+        codeButtonIcon = new javax.swing.JLabel();
+        spacer1 = new javax.swing.JPanel();
+        h1Button = new javax.swing.JPanel();
+        h1ButtonIcon = new javax.swing.JLabel();
+        h2Button = new javax.swing.JPanel();
+        h2ButtonIcon = new javax.swing.JLabel();
+        h3Button = new javax.swing.JPanel();
+        h3ButtonIcon = new javax.swing.JLabel();
+        h4Button = new javax.swing.JPanel();
+        h4ButtonIcon = new javax.swing.JLabel();
+        h5Button = new javax.swing.JPanel();
+        h5ButtonIcon = new javax.swing.JLabel();
+        h6Button = new javax.swing.JPanel();
+        h6ButtonIcon = new javax.swing.JLabel();
         MenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         newMenuItem = new javax.swing.JMenuItem();
@@ -56,6 +81,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(242, 242, 242));
+        setPreferredSize(new java.awt.Dimension(800, 500));
 
         splitPane.setBackground(new java.awt.Color(242, 242, 242));
         splitPane.setForeground(new java.awt.Color(242, 242, 242));
@@ -100,10 +126,16 @@ public class MainJFrame extends javax.swing.JFrame {
 
         formatPanel.setBackground(new java.awt.Color(242, 242, 242));
         formatPanel.setForeground(new java.awt.Color(242, 242, 242));
-        formatPanel.setPreferredSize(new java.awt.Dimension(400, 60));
+        formatPanel.setPreferredSize(new java.awt.Dimension(400, 50));
+        formatPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         boldButton.setBackground(new java.awt.Color(242, 242, 242));
-        boldButton.setPreferredSize(new java.awt.Dimension(30, 30));
+        boldButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        boldButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                boldButtonMouseReleased(evt);
+            }
+        });
 
         boldButtonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon01_bold.png"))); // NOI18N
         boldButtonIcon.setMinimumSize(new java.awt.Dimension(30, 30));
@@ -112,24 +144,441 @@ public class MainJFrame extends javax.swing.JFrame {
         boldButton.setLayout(boldButtonLayout);
         boldButtonLayout.setHorizontalGroup(
             boldButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addGap(0, 40, Short.MAX_VALUE)
             .addGroup(boldButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(boldButtonLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 5, Short.MAX_VALUE)
                     .addComponent(boldButtonIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 5, Short.MAX_VALUE)))
         );
         boldButtonLayout.setVerticalGroup(
             boldButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addGap(0, 40, Short.MAX_VALUE)
             .addGroup(boldButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(boldButtonLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 5, Short.MAX_VALUE)
                     .addComponent(boldButtonIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 5, Short.MAX_VALUE)))
         );
 
         formatPanel.add(boldButton);
+
+        italicButton.setBackground(new java.awt.Color(242, 242, 242));
+        italicButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        italicButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                italicButtonMouseReleased(evt);
+            }
+        });
+
+        italicButtonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon02_italic.png"))); // NOI18N
+
+        javax.swing.GroupLayout italicButtonLayout = new javax.swing.GroupLayout(italicButton);
+        italicButton.setLayout(italicButtonLayout);
+        italicButtonLayout.setHorizontalGroup(
+            italicButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(italicButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(italicButtonLayout.createSequentialGroup()
+                    .addGap(0, 5, Short.MAX_VALUE)
+                    .addComponent(italicButtonIcon)
+                    .addGap(0, 5, Short.MAX_VALUE)))
+        );
+        italicButtonLayout.setVerticalGroup(
+            italicButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(italicButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(italicButtonLayout.createSequentialGroup()
+                    .addGap(0, 5, Short.MAX_VALUE)
+                    .addComponent(italicButtonIcon)
+                    .addGap(0, 5, Short.MAX_VALUE)))
+        );
+
+        formatPanel.add(italicButton);
+
+        strikethroughButton.setBackground(new java.awt.Color(242, 242, 242));
+        strikethroughButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        strikethroughButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                strikethroughButtonMouseReleased(evt);
+            }
+        });
+
+        strikethroughButtonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon03_strikethrough.png"))); // NOI18N
+
+        javax.swing.GroupLayout strikethroughButtonLayout = new javax.swing.GroupLayout(strikethroughButton);
+        strikethroughButton.setLayout(strikethroughButtonLayout);
+        strikethroughButtonLayout.setHorizontalGroup(
+            strikethroughButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(strikethroughButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(strikethroughButtonLayout.createSequentialGroup()
+                    .addGap(0, 5, Short.MAX_VALUE)
+                    .addComponent(strikethroughButtonIcon)
+                    .addGap(0, 5, Short.MAX_VALUE)))
+        );
+        strikethroughButtonLayout.setVerticalGroup(
+            strikethroughButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(strikethroughButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(strikethroughButtonLayout.createSequentialGroup()
+                    .addGap(0, 5, Short.MAX_VALUE)
+                    .addComponent(strikethroughButtonIcon)
+                    .addGap(0, 5, Short.MAX_VALUE)))
+        );
+
+        formatPanel.add(strikethroughButton);
+
+        inlineButton.setBackground(new java.awt.Color(242, 242, 242));
+        inlineButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        inlineButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                inlineButtonMouseReleased(evt);
+            }
+        });
+
+        inlineButtonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon04_inline.png"))); // NOI18N
+
+        javax.swing.GroupLayout inlineButtonLayout = new javax.swing.GroupLayout(inlineButton);
+        inlineButton.setLayout(inlineButtonLayout);
+        inlineButtonLayout.setHorizontalGroup(
+            inlineButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(inlineButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(inlineButtonLayout.createSequentialGroup()
+                    .addGap(0, 5, Short.MAX_VALUE)
+                    .addComponent(inlineButtonIcon)
+                    .addGap(0, 5, Short.MAX_VALUE)))
+        );
+        inlineButtonLayout.setVerticalGroup(
+            inlineButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(inlineButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(inlineButtonLayout.createSequentialGroup()
+                    .addGap(0, 5, Short.MAX_VALUE)
+                    .addComponent(inlineButtonIcon)
+                    .addGap(0, 5, Short.MAX_VALUE)))
+        );
+
+        formatPanel.add(inlineButton);
+
+        quoteButton.setBackground(new java.awt.Color(242, 242, 242));
+        quoteButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        quoteButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                quoteButtonMouseReleased(evt);
+            }
+        });
+
+        quoteButtonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon11_blockquote.png"))); // NOI18N
+
+        javax.swing.GroupLayout quoteButtonLayout = new javax.swing.GroupLayout(quoteButton);
+        quoteButton.setLayout(quoteButtonLayout);
+        quoteButtonLayout.setHorizontalGroup(
+            quoteButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(quoteButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(quoteButtonLayout.createSequentialGroup()
+                    .addGap(0, 5, Short.MAX_VALUE)
+                    .addComponent(quoteButtonIcon)
+                    .addGap(0, 5, Short.MAX_VALUE)))
+        );
+        quoteButtonLayout.setVerticalGroup(
+            quoteButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(quoteButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(quoteButtonLayout.createSequentialGroup()
+                    .addGap(0, 5, Short.MAX_VALUE)
+                    .addComponent(quoteButtonIcon)
+                    .addGap(0, 5, Short.MAX_VALUE)))
+        );
+
+        formatPanel.add(quoteButton);
+
+        bulletButton.setBackground(new java.awt.Color(242, 242, 242));
+        bulletButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        bulletButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                bulletButtonMouseReleased(evt);
+            }
+        });
+
+        bulletButtonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon12_bullet.png"))); // NOI18N
+
+        javax.swing.GroupLayout bulletButtonLayout = new javax.swing.GroupLayout(bulletButton);
+        bulletButton.setLayout(bulletButtonLayout);
+        bulletButtonLayout.setHorizontalGroup(
+            bulletButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(bulletButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(bulletButtonLayout.createSequentialGroup()
+                    .addGap(0, 5, Short.MAX_VALUE)
+                    .addComponent(bulletButtonIcon)
+                    .addGap(0, 5, Short.MAX_VALUE)))
+        );
+        bulletButtonLayout.setVerticalGroup(
+            bulletButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(bulletButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(bulletButtonLayout.createSequentialGroup()
+                    .addGap(0, 5, Short.MAX_VALUE)
+                    .addComponent(bulletButtonIcon)
+                    .addGap(0, 5, Short.MAX_VALUE)))
+        );
+
+        formatPanel.add(bulletButton);
+
+        codeButton.setBackground(new java.awt.Color(242, 242, 242));
+        codeButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        codeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                codeButtonMouseReleased(evt);
+            }
+        });
+
+        codeButtonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon13_codeblock.png"))); // NOI18N
+
+        javax.swing.GroupLayout codeButtonLayout = new javax.swing.GroupLayout(codeButton);
+        codeButton.setLayout(codeButtonLayout);
+        codeButtonLayout.setHorizontalGroup(
+            codeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(codeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(codeButtonLayout.createSequentialGroup()
+                    .addGap(0, 7, Short.MAX_VALUE)
+                    .addComponent(codeButtonIcon)
+                    .addGap(0, 7, Short.MAX_VALUE)))
+        );
+        codeButtonLayout.setVerticalGroup(
+            codeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(codeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(codeButtonLayout.createSequentialGroup()
+                    .addGap(0, 7, Short.MAX_VALUE)
+                    .addComponent(codeButtonIcon)
+                    .addGap(0, 8, Short.MAX_VALUE)))
+        );
+
+        formatPanel.add(codeButton);
+
+        spacer1.setBackground(new java.awt.Color(242, 242, 242));
+        spacer1.setPreferredSize(new java.awt.Dimension(40, 40));
+        spacer1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                spacer1MouseReleased(evt);
+            }
+        });
+
+        javax.swing.GroupLayout spacer1Layout = new javax.swing.GroupLayout(spacer1);
+        spacer1.setLayout(spacer1Layout);
+        spacer1Layout.setHorizontalGroup(
+            spacer1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+        spacer1Layout.setVerticalGroup(
+            spacer1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        formatPanel.add(spacer1);
+
+        h1Button.setBackground(new java.awt.Color(242, 242, 242));
+        h1Button.setPreferredSize(new java.awt.Dimension(40, 40));
+        h1Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                h1ButtonMouseReleased(evt);
+            }
+        });
+
+        h1ButtonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon05_h1.png"))); // NOI18N
+
+        javax.swing.GroupLayout h1ButtonLayout = new javax.swing.GroupLayout(h1Button);
+        h1Button.setLayout(h1ButtonLayout);
+        h1ButtonLayout.setHorizontalGroup(
+            h1ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(h1ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(h1ButtonLayout.createSequentialGroup()
+                    .addGap(0, 6, Short.MAX_VALUE)
+                    .addComponent(h1ButtonIcon)
+                    .addGap(0, 7, Short.MAX_VALUE)))
+        );
+        h1ButtonLayout.setVerticalGroup(
+            h1ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(h1ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(h1ButtonLayout.createSequentialGroup()
+                    .addGap(0, 7, Short.MAX_VALUE)
+                    .addComponent(h1ButtonIcon)
+                    .addGap(0, 8, Short.MAX_VALUE)))
+        );
+
+        formatPanel.add(h1Button);
+
+        h2Button.setBackground(new java.awt.Color(242, 242, 242));
+        h2Button.setPreferredSize(new java.awt.Dimension(40, 40));
+        h2Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                h2ButtonMouseReleased(evt);
+            }
+        });
+
+        h2ButtonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon06_h2.png"))); // NOI18N
+
+        javax.swing.GroupLayout h2ButtonLayout = new javax.swing.GroupLayout(h2Button);
+        h2Button.setLayout(h2ButtonLayout);
+        h2ButtonLayout.setHorizontalGroup(
+            h2ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(h2ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(h2ButtonLayout.createSequentialGroup()
+                    .addGap(0, 6, Short.MAX_VALUE)
+                    .addComponent(h2ButtonIcon)
+                    .addGap(0, 7, Short.MAX_VALUE)))
+        );
+        h2ButtonLayout.setVerticalGroup(
+            h2ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(h2ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(h2ButtonLayout.createSequentialGroup()
+                    .addGap(0, 7, Short.MAX_VALUE)
+                    .addComponent(h2ButtonIcon)
+                    .addGap(0, 8, Short.MAX_VALUE)))
+        );
+
+        formatPanel.add(h2Button);
+
+        h3Button.setBackground(new java.awt.Color(242, 242, 242));
+        h3Button.setPreferredSize(new java.awt.Dimension(40, 40));
+        h3Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                h3ButtonMouseReleased(evt);
+            }
+        });
+
+        h3ButtonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon07_h3.png"))); // NOI18N
+
+        javax.swing.GroupLayout h3ButtonLayout = new javax.swing.GroupLayout(h3Button);
+        h3Button.setLayout(h3ButtonLayout);
+        h3ButtonLayout.setHorizontalGroup(
+            h3ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(h3ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(h3ButtonLayout.createSequentialGroup()
+                    .addGap(0, 6, Short.MAX_VALUE)
+                    .addComponent(h3ButtonIcon)
+                    .addGap(0, 7, Short.MAX_VALUE)))
+        );
+        h3ButtonLayout.setVerticalGroup(
+            h3ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(h3ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(h3ButtonLayout.createSequentialGroup()
+                    .addGap(0, 7, Short.MAX_VALUE)
+                    .addComponent(h3ButtonIcon)
+                    .addGap(0, 8, Short.MAX_VALUE)))
+        );
+
+        formatPanel.add(h3Button);
+
+        h4Button.setBackground(new java.awt.Color(242, 242, 242));
+        h4Button.setPreferredSize(new java.awt.Dimension(40, 40));
+        h4Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                h4ButtonMouseReleased(evt);
+            }
+        });
+
+        h4ButtonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon08_h4.png"))); // NOI18N
+
+        javax.swing.GroupLayout h4ButtonLayout = new javax.swing.GroupLayout(h4Button);
+        h4Button.setLayout(h4ButtonLayout);
+        h4ButtonLayout.setHorizontalGroup(
+            h4ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(h4ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(h4ButtonLayout.createSequentialGroup()
+                    .addGap(0, 6, Short.MAX_VALUE)
+                    .addComponent(h4ButtonIcon)
+                    .addGap(0, 7, Short.MAX_VALUE)))
+        );
+        h4ButtonLayout.setVerticalGroup(
+            h4ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(h4ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(h4ButtonLayout.createSequentialGroup()
+                    .addGap(0, 7, Short.MAX_VALUE)
+                    .addComponent(h4ButtonIcon)
+                    .addGap(0, 8, Short.MAX_VALUE)))
+        );
+
+        formatPanel.add(h4Button);
+
+        h5Button.setBackground(new java.awt.Color(242, 242, 242));
+        h5Button.setPreferredSize(new java.awt.Dimension(40, 40));
+        h5Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                h5ButtonMouseReleased(evt);
+            }
+        });
+
+        h5ButtonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon09_h5.png"))); // NOI18N
+
+        javax.swing.GroupLayout h5ButtonLayout = new javax.swing.GroupLayout(h5Button);
+        h5Button.setLayout(h5ButtonLayout);
+        h5ButtonLayout.setHorizontalGroup(
+            h5ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(h5ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(h5ButtonLayout.createSequentialGroup()
+                    .addGap(0, 6, Short.MAX_VALUE)
+                    .addComponent(h5ButtonIcon)
+                    .addGap(0, 7, Short.MAX_VALUE)))
+        );
+        h5ButtonLayout.setVerticalGroup(
+            h5ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(h5ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(h5ButtonLayout.createSequentialGroup()
+                    .addGap(0, 7, Short.MAX_VALUE)
+                    .addComponent(h5ButtonIcon)
+                    .addGap(0, 8, Short.MAX_VALUE)))
+        );
+
+        formatPanel.add(h5Button);
+
+        h6Button.setBackground(new java.awt.Color(242, 242, 242));
+        h6Button.setPreferredSize(new java.awt.Dimension(40, 40));
+        h6Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                h6ButtonMouseReleased(evt);
+            }
+        });
+
+        h6ButtonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon10_h6.png"))); // NOI18N
+
+        javax.swing.GroupLayout h6ButtonLayout = new javax.swing.GroupLayout(h6Button);
+        h6Button.setLayout(h6ButtonLayout);
+        h6ButtonLayout.setHorizontalGroup(
+            h6ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(h6ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(h6ButtonLayout.createSequentialGroup()
+                    .addGap(0, 6, Short.MAX_VALUE)
+                    .addComponent(h6ButtonIcon)
+                    .addGap(0, 7, Short.MAX_VALUE)))
+        );
+        h6ButtonLayout.setVerticalGroup(
+            h6ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(h6ButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(h6ButtonLayout.createSequentialGroup()
+                    .addGap(0, 7, Short.MAX_VALUE)
+                    .addComponent(h6ButtonIcon)
+                    .addGap(0, 8, Short.MAX_VALUE)))
+        );
+
+        formatPanel.add(h6Button);
 
         getContentPane().add(formatPanel, java.awt.BorderLayout.PAGE_START);
 
@@ -184,6 +633,62 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void boldButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boldButtonMouseReleased
+        System.out.println("bold");
+    }//GEN-LAST:event_boldButtonMouseReleased
+
+    private void italicButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_italicButtonMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_italicButtonMouseReleased
+
+    private void strikethroughButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_strikethroughButtonMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_strikethroughButtonMouseReleased
+
+    private void inlineButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inlineButtonMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inlineButtonMouseReleased
+
+    private void quoteButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quoteButtonMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quoteButtonMouseReleased
+
+    private void bulletButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bulletButtonMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bulletButtonMouseReleased
+
+    private void codeButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_codeButtonMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_codeButtonMouseReleased
+
+    private void spacer1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spacer1MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_spacer1MouseReleased
+
+    private void h1ButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_h1ButtonMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_h1ButtonMouseReleased
+
+    private void h2ButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_h2ButtonMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_h2ButtonMouseReleased
+
+    private void h3ButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_h3ButtonMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_h3ButtonMouseReleased
+
+    private void h4ButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_h4ButtonMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_h4ButtonMouseReleased
+
+    private void h5ButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_h5ButtonMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_h5ButtonMouseReleased
+
+    private void h6ButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_h6ButtonMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_h6ButtonMouseReleased
+
     /**
      * @param args the command line arguments
      */
@@ -225,12 +730,32 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JPanel boldButton;
     private javax.swing.JLabel boldButtonIcon;
+    private javax.swing.JPanel bulletButton;
+    private javax.swing.JLabel bulletButtonIcon;
+    private javax.swing.JPanel codeButton;
+    private javax.swing.JLabel codeButtonIcon;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JPanel formatPanel;
+    private javax.swing.JPanel h1Button;
+    private javax.swing.JLabel h1ButtonIcon;
+    private javax.swing.JPanel h2Button;
+    private javax.swing.JLabel h2ButtonIcon;
+    private javax.swing.JPanel h3Button;
+    private javax.swing.JLabel h3ButtonIcon;
+    private javax.swing.JPanel h4Button;
+    private javax.swing.JLabel h4ButtonIcon;
+    private javax.swing.JPanel h5Button;
+    private javax.swing.JLabel h5ButtonIcon;
+    private javax.swing.JPanel h6Button;
+    private javax.swing.JLabel h6ButtonIcon;
     private javax.swing.JMenu helpMenu;
+    private javax.swing.JPanel inlineButton;
+    private javax.swing.JLabel inlineButtonIcon;
+    private javax.swing.JPanel italicButton;
+    private javax.swing.JLabel italicButtonIcon;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -238,11 +763,16 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JEditorPane previewPane;
+    private javax.swing.JPanel quoteButton;
+    private javax.swing.JLabel quoteButtonIcon;
     private javax.swing.JMenuItem redoMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JPanel spacer1;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JLabel statusLabel;
     private javax.swing.JPanel statusPanel;
+    private javax.swing.JPanel strikethroughButton;
+    private javax.swing.JLabel strikethroughButtonIcon;
     private javax.swing.JTextArea textArea;
     private javax.swing.JMenuItem undoMenuItem;
     // End of variables declaration//GEN-END:variables
