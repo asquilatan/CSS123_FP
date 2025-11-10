@@ -41,6 +41,8 @@ public class MainJFrame extends javax.swing.JFrame {
         heading1Button = new javax.swing.JButton();
         heading2Button = new javax.swing.JButton();
         bulletButton = new javax.swing.JButton();
+        boldButtonTemp = new javax.swing.JPanel();
+        boldButtonIcon = new javax.swing.JLabel();
         MenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         newMenuItem = new javax.swing.JMenuItem();
@@ -72,29 +74,15 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().add(splitPane, java.awt.BorderLayout.CENTER);
 
         statusPanel.setPreferredSize(new java.awt.Dimension(400, 15));
+        statusPanel.setLayout(new java.awt.BorderLayout());
 
         statusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         statusLabel.setText("Ready");
-
-        javax.swing.GroupLayout statusPanelLayout = new javax.swing.GroupLayout(statusPanel);
-        statusPanel.setLayout(statusPanelLayout);
-        statusPanelLayout.setHorizontalGroup(
-            statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(statusPanelLayout.createSequentialGroup()
-                .addGap(186, 186, 186)
-                .addComponent(statusLabel)
-                .addContainerGap(206, Short.MAX_VALUE))
-        );
-        statusPanelLayout.setVerticalGroup(
-            statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(statusPanelLayout.createSequentialGroup()
-                .addComponent(statusLabel)
-                .addGap(0, 1, Short.MAX_VALUE))
-        );
+        statusPanel.add(statusLabel, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(statusPanel, java.awt.BorderLayout.SOUTH);
 
-        formatPanel.setPreferredSize(new java.awt.Dimension(400, 40));
+        formatPanel.setPreferredSize(new java.awt.Dimension(400, 80));
 
         boldButton.setText("Bold");
         formatPanel.add(boldButton);
@@ -111,19 +99,47 @@ public class MainJFrame extends javax.swing.JFrame {
         bulletButton.setText("Bullet List");
         formatPanel.add(bulletButton);
 
+        boldButtonTemp.setPreferredSize(new java.awt.Dimension(30, 30));
+
+        boldButtonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon01_bold.png"))); // NOI18N
+        boldButtonIcon.setMinimumSize(new java.awt.Dimension(30, 30));
+
+        javax.swing.GroupLayout boldButtonTempLayout = new javax.swing.GroupLayout(boldButtonTemp);
+        boldButtonTemp.setLayout(boldButtonTempLayout);
+        boldButtonTempLayout.setHorizontalGroup(
+            boldButtonTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+            .addGroup(boldButtonTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(boldButtonTempLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(boldButtonIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        boldButtonTempLayout.setVerticalGroup(
+            boldButtonTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+            .addGroup(boldButtonTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(boldButtonTempLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(boldButtonIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        formatPanel.add(boldButtonTemp);
+
         getContentPane().add(formatPanel, java.awt.BorderLayout.PAGE_START);
 
         fileMenu.setText("File");
 
-        newMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        newMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         newMenuItem.setText("New");
         fileMenu.add(newMenuItem);
 
-        openMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        openMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         openMenuItem.setText("Open");
         fileMenu.add(openMenuItem);
 
-        saveMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        saveMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         saveMenuItem.setText("Save");
         fileMenu.add(saveMenuItem);
 
@@ -131,19 +147,19 @@ public class MainJFrame extends javax.swing.JFrame {
 
         editMenu.setText("Edit");
 
-        undoMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
+        undoMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         undoMenuItem.setText("Undo");
         editMenu.add(undoMenuItem);
 
-        redoMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
+        redoMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         redoMenuItem.setText("Redo");
         editMenu.add(redoMenuItem);
 
-        cutMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
+        cutMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         cutMenuItem.setText("Cut");
         editMenu.add(cutMenuItem);
 
-        copyMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        copyMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         copyMenuItem.setText("Copy");
         editMenu.add(copyMenuItem);
 
@@ -204,6 +220,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JMenuBar MenuBar;
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JButton boldButton;
+    private javax.swing.JLabel boldButtonIcon;
+    private javax.swing.JPanel boldButtonTemp;
     private javax.swing.JButton bulletButton;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
