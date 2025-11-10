@@ -73,6 +73,7 @@ public class MainJFrame extends javax.swing.JFrame {
             private void updatePreview() {
                 String html = MarkdownHelper.convertToHtml(textArea.getText());
                 previewPane.setText(html);
+                updateWordCount();
             }
         });
     }
@@ -82,6 +83,12 @@ public class MainJFrame extends javax.swing.JFrame {
             undoMenuItem.setEnabled(undoManager.canUndo());
             redoMenuItem.setEnabled(undoManager.canRedo());
         });
+    }
+    
+    private void updateWordCount() {
+        String text = textArea.getText();
+        int wordCount = WordCount.countWords(text);
+        jLabel1.setText("Word Count: " + wordCount);
     }
 
     /**
@@ -101,6 +108,7 @@ public class MainJFrame extends javax.swing.JFrame {
         previewPane = new javax.swing.JEditorPane();
         statusPanel = new javax.swing.JPanel();
         statusLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         formatPanel = new javax.swing.JPanel();
         boldButton = new javax.swing.JPanel();
         boldButtonIcon = new javax.swing.JLabel();
@@ -148,6 +156,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(242, 242, 242));
+        setMaximumSize(new java.awt.Dimension(800, 400));
+        setMinimumSize(new java.awt.Dimension(800, 400));
+        setPreferredSize(new java.awt.Dimension(800, 400));
 
         splitPane.setBackground(new java.awt.Color(242, 242, 242));
         splitPane.setForeground(new java.awt.Color(242, 242, 242));
@@ -179,7 +190,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         statusPanel.setBackground(new java.awt.Color(242, 242, 242));
         statusPanel.setPreferredSize(new java.awt.Dimension(400, 15));
-        statusPanel.setLayout(new java.awt.BorderLayout());
+        statusPanel.setLayout(new java.awt.BorderLayout(10, 0));
 
         statusLabel.setFont(new java.awt.Font("Helvetica", 0, 12)); // NOI18N
         statusLabel.setForeground(new java.awt.Color(30, 30, 30));
@@ -188,6 +199,10 @@ public class MainJFrame extends javax.swing.JFrame {
         statusLabel.setMaximumSize(new java.awt.Dimension(32, 32));
         statusLabel.setPreferredSize(new java.awt.Dimension(32, 32));
         statusPanel.add(statusLabel, java.awt.BorderLayout.CENTER);
+
+        jLabel1.setForeground(new java.awt.Color(30, 30, 30));
+        jLabel1.setText("Word Count: ");
+        statusPanel.add(jLabel1, java.awt.BorderLayout.LINE_START);
 
         getContentPane().add(statusPanel, java.awt.BorderLayout.SOUTH);
 
@@ -915,6 +930,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel inlineButtonIcon;
     private javax.swing.JPanel italicButton;
     private javax.swing.JLabel italicButtonIcon;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
