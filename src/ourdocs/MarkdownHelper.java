@@ -17,7 +17,7 @@ class MarkdownHelper {
     
 //    Per Character features
     public static void applyBold(JTextArea editor) {
-        ApplyBold.apply(editor);
+//        ApplyBold.apply(editor);
     }
     
     public static void applyItalic(JTextArea editor) {

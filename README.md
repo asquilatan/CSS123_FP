@@ -1,0 +1,35 @@
+TODO:
+- [ ] Per-char formatting
+  - ApplyBold.apply(editor);
+  - ApplyItalic.apply(editor);
+  - ApplyStrikethrough.apply(editor);
+  - ApplyInlineCode.apply(editor);
+- [ ] Per-line formatting
+  - ApplyBlockquote.apply(editor);
+  - ApplyBulletList.apply(editor);
+  - ApplyCodeBlock.apply(editor);
+- [ ] Headings
+  - ApplyHeading.apply(editor, 1);
+  - ApplyHeading.apply(editor, 2);
+  - ApplyHeading.apply(editor, 3);
+  - ApplyHeading.apply(editor, 4);
+  - ApplyHeading.apply(editor, 5);
+  - ApplyHeading.apply(editor, 6);
+- [ ] Timer Events
+  - Auto Save
+- [ ] File Menu
+  - New
+  - Open
+  - Save
+- [ ] Edit Menu
+  - Undo
+  - Redo
+  - Cut
+  - Copy
+  - Paste
+- [ ] Help Menu
+  - About
+- [ ] Search and Replace feature
+- [ ] Dark Mode feature
+- [ ] Word count feature
+
