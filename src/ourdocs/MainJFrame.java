@@ -11,6 +11,7 @@ import javax.swing.JEditorPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.html.HTMLEditorKit;
+import ourdocs.AutoSave;
 
 /**
  *
@@ -28,6 +29,9 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         setupPreviewPane();
         setupDocumentListener();
+        
+//         Start auto-save with 1-minute interval (60,000 milliseconds)
+        AutoSave.startAutoSave(this, textArea, () -> currentFile, statusLabel, 60000);
     }
     
     private void setupPreviewPane() {
