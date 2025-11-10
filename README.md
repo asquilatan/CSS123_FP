@@ -1,6 +1,4 @@
 TODO:
-- [ ] Timer Events
-  - Auto Save
 - [ ] Edit Menu
   - Undo
   - Redo
