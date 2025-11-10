@@ -19,6 +19,8 @@ public class NewJFrame extends javax.swing.JFrame {
         System.out.println("TESTING (by allen)");
     }
 
+    // pls push push push 
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
