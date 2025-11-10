@@ -11,7 +11,6 @@ import javax.swing.JTextArea;
  * @author allen
  */
 public class ApplyBold {
-    // pass
     public static void apply(JTextArea editor) {
         TextHelper.toggleWrap(editor, "**", "**");
     }
