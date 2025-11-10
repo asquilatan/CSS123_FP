@@ -5,6 +5,11 @@
  */
 package ourdocs;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.*;
+import javax.swing.*;
+
 /**
  *
  * @author sobre
@@ -18,7 +23,7 @@ public class NewJFrame extends javax.swing.JFrame {
         initComponents();
         System.out.println("TESTING (by allen)");
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
