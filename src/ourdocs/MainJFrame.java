@@ -110,8 +110,7 @@ public class MainJFrame extends javax.swing.JFrame {
         );
         
         if (response == JOptionPane.NO_OPTION) {
-            // Optional: auto-save and close? Or just reset timer
-            // For now, we'll just reset the timer on any response
+            
         }
         
         // Restart timer after user responds
