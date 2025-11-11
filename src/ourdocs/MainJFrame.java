@@ -17,6 +17,7 @@ import javax.swing.undo.UndoableEdit;
 import ourdocs.AutoSave;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+import ourdocs.SearchReplaceDialog;
 
 /**
  *
@@ -218,6 +219,8 @@ public class MainJFrame extends javax.swing.JFrame {
         spacer2 = new javax.swing.JPanel();
         darkModeButton = new javax.swing.JPanel();
         darkModeButtonIcon = new javax.swing.JLabel();
+        searchButton = new javax.swing.JPanel();
+        searchButtonIcon = new javax.swing.JLabel();
         MenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         newMenuItem = new javax.swing.JMenuItem();
@@ -238,6 +241,7 @@ public class MainJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(242, 242, 242));
         setMinimumSize(new java.awt.Dimension(800, 400));
+        setPreferredSize(new java.awt.Dimension(900, 400));
 
         splitPane.setBackground(new java.awt.Color(242, 242, 242));
         splitPane.setForeground(new java.awt.Color(242, 242, 242));
@@ -775,12 +779,12 @@ public class MainJFrame extends javax.swing.JFrame {
         darkModeButton.setLayout(darkModeButtonLayout);
         darkModeButtonLayout.setHorizontalGroup(
             darkModeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 49, Short.MAX_VALUE)
+            .addGap(0, 80, Short.MAX_VALUE)
             .addGroup(darkModeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(darkModeButtonLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 15, Short.MAX_VALUE)
                     .addComponent(darkModeButtonIcon)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 16, Short.MAX_VALUE)))
         );
         darkModeButtonLayout.setVerticalGroup(
             darkModeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -793,6 +797,39 @@ public class MainJFrame extends javax.swing.JFrame {
         );
 
         formatPanel.add(darkModeButton);
+
+        searchButton.setBackground(new java.awt.Color(242, 242, 242));
+        searchButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        searchButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                searchButtonMouseReleased(evt);
+            }
+        });
+
+        searchButtonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon17_search.png"))); // NOI18N
+
+        javax.swing.GroupLayout searchButtonLayout = new javax.swing.GroupLayout(searchButton);
+        searchButton.setLayout(searchButtonLayout);
+        searchButtonLayout.setHorizontalGroup(
+            searchButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(searchButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(searchButtonLayout.createSequentialGroup()
+                    .addGap(0, 7, Short.MAX_VALUE)
+                    .addComponent(searchButtonIcon)
+                    .addGap(0, 8, Short.MAX_VALUE)))
+        );
+        searchButtonLayout.setVerticalGroup(
+            searchButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(searchButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(searchButtonLayout.createSequentialGroup()
+                    .addGap(0, 7, Short.MAX_VALUE)
+                    .addComponent(searchButtonIcon)
+                    .addGap(0, 8, Short.MAX_VALUE)))
+        );
+
+        formatPanel.add(searchButton);
 
         getContentPane().add(formatPanel, java.awt.BorderLayout.PAGE_START);
 
@@ -1035,6 +1072,11 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_spacer2MouseReleased
 
+    private void searchButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchButtonMouseReleased
+        SearchReplaceDialog searchReplaceDialog = new SearchReplaceDialog(this, textArea);
+        searchReplaceDialog.setVisible(true);
+    }//GEN-LAST:event_searchButtonMouseReleased
+
     /**
      * Updates all icons based on the current theme state.
      * If dark theme is active, switches to dark icons (with "_d" suffix).
@@ -1057,6 +1099,7 @@ public class MainJFrame extends javax.swing.JFrame {
             updateIcon(bulletButtonIcon, "/icons/icon12_bullet_d.png");
             updateIcon(codeButtonIcon, "/icons/icon13_codeblock_d.png");
             updateIcon(darkModeButtonIcon, "/icons/icon14_darkmode_d.png");
+            updateIcon(searchButtonIcon, "/icons/icon17_search_d.png");
         } else {
             // Switch to light icons (without "_d" suffix)
             updateIcon(boldButtonIcon, "/icons/icon01_bold.png");
@@ -1073,6 +1116,7 @@ public class MainJFrame extends javax.swing.JFrame {
             updateIcon(bulletButtonIcon, "/icons/icon12_bullet.png");
             updateIcon(codeButtonIcon, "/icons/icon13_codeblock.png");
             updateIcon(darkModeButtonIcon, "/icons/icon14_darkmode.png");
+            updateIcon(searchButtonIcon, "/icons/icon17_search.png");
         }
     }
     
@@ -1183,6 +1227,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem redoMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JPanel searchButton;
+    private javax.swing.JLabel searchButtonIcon;
     private javax.swing.JPanel spacer1;
     private javax.swing.JPanel spacer2;
     private javax.swing.JSplitPane splitPane;
