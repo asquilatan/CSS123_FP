@@ -15,6 +15,8 @@ import javax.swing.text.Document;
 import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.undo.UndoableEdit;
 import ourdocs.AutoSave;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 
 /**
  *
@@ -24,6 +26,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private java.io.File currentFile = null;
     private javax.swing.undo.UndoManager undoManager;
+    private javax.swing.Timer inactivityTimer;
+    private static final int INACTIVITY_DELAY = 5 * 60 * 1000; // 5 minutes in milliseconds
     
     /**
      * Creates new form NewJFrame
@@ -36,6 +40,8 @@ public class MainJFrame extends javax.swing.JFrame {
         
 //         Start auto-save with 1-minute interval (60,000 milliseconds)
         AutoSave.startAutoSave(this, textArea, () -> currentFile, statusLabel, 60000);
+        
+        setupInactivityTimer();
     }
     
     private void setupPreviewPane() {
@@ -91,7 +97,64 @@ public class MainJFrame extends javax.swing.JFrame {
         int wordCount = WordCount.countWords(text);
         jLabel1.setText("Word Count: " + wordCount);
     }
+    
+    private void setupInactivityTimer() {
+    // Create timer that shows reminder when it fires
+    inactivityTimer = new javax.swing.Timer(INACTIVITY_DELAY, e -> {
+        int response = JOptionPane.showConfirmDialog(
+            this,
+            "It's been a while — are you still editing?",
+            "Inactivity Reminder",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE
+        );
+        
+        if (response == JOptionPane.NO_OPTION) {
+            // Optional: auto-save and close? Or just reset timer
+            // For now, we'll just reset the timer on any response
+        }
+        
+        // Restart timer after user responds
+        inactivityTimer.restart();
+    });
+    inactivityTimer.setRepeats(false);
+    inactivityTimer.start();
 
+    // Reset timer on text changes
+    textArea.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+        public void insertUpdate(javax.swing.event.DocumentEvent e) { resetInactivityTimer(); }
+        public void removeUpdate(javax.swing.event.DocumentEvent e) { resetInactivityTimer(); }
+        public void changedUpdate(javax.swing.event.DocumentEvent e) { resetInactivityTimer(); }
+    });
+
+    // Reset timer on mouse movement in the main window
+    addMouseMotionListener(new MouseMotionListener() {
+        @Override
+        public void mouseMoved(MouseEvent e) {
+            resetInactivityTimer();
+        }
+        @Override
+        public void mouseDragged(MouseEvent e) {
+            resetInactivityTimer();
+        }
+    });
+
+    // Reset timer on any key press in the text area
+    textArea.addKeyListener(new java.awt.event.KeyAdapter() {
+        @Override
+        public void keyPressed(java.awt.event.KeyEvent e) {
+            resetInactivityTimer();
+        }
+    });
+}
+
+        private void resetInactivityTimer() {
+            if (inactivityTimer.isRunning()) {
+         inactivityTimer.restart(); // Stops and restarts
+         } else {
+        inactivityTimer.start();
+    }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
