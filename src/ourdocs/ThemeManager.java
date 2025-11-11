@@ -21,7 +21,7 @@ public class ThemeManager {
     }
 
     public void apply(Component root) {
-        Color bg = dark ? new Color(34,34,34) : new Color(242,242,242);
+        Color bg = dark ? new Color(44,44,44) : new Color(242,242,242);
         Color paneBg = dark ? new Color(24,24,24) : new Color(251,251,251);
         Color fg = dark ? new Color(220,220,220) : new Color(30,30,30);
         applyRecursive(root, bg, paneBg, fg);

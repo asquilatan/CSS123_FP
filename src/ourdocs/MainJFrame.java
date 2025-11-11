@@ -47,6 +47,10 @@ public class MainJFrame extends javax.swing.JFrame {
         // Initialize theme manager and apply initial theme
         themeManager = new ThemeManager();
         themeManager.apply(this);
+        
+        // Set window icon and title
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icons/icon16_glyph_90x90.png")).getImage());
+        setTitle("Glyph");
     }
     
     private void setupPreviewPane() {
@@ -998,7 +1002,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_pasteMenuItemActionPerformed
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
-        String message = "OURDOCS!\n" +
+        String message = "Glyph\n" +
                  "Built by: Group 32\n" +
                  "\n" +
                  "Features:\n" +
@@ -1013,8 +1017,9 @@ public class MainJFrame extends javax.swing.JFrame {
     JOptionPane.showMessageDialog(
         this,
         message,
-        "About OurDocs",
-        JOptionPane.INFORMATION_MESSAGE
+        "About Glyph",
+        JOptionPane.INFORMATION_MESSAGE,
+        new javax.swing.ImageIcon(getClass().getResource("/icons/icon16_glyph_90x90_d.png"))
     );
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
