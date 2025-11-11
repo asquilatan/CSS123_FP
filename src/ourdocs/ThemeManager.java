@@ -43,12 +43,8 @@ public class ThemeManager {
 
     private void applyRecursive(Component c, Color bg, Color paneBg, Color fg) {
         if (c == null) return;
-        if (c instanceof JMenuBar) {
-            c.setBackground(bg); c.setForeground(fg);
-            JMenuBar mb = (JMenuBar)c;
-            for (int i=0;i<mb.getMenuCount();i++) styleMenu(mb.getMenu(i), bg, fg);
-        } else if (c instanceof JMenu) {
-            styleMenu((JMenu)c, bg, fg);
+        if (c instanceof JMenuBar || c instanceof JMenu || c instanceof JMenuItem) {
+            // Skip theming menu components to use system defaults
         } else if (c instanceof JTextComponent) {
             c.setBackground(paneBg); c.setForeground(fg);
             ((JTextComponent)c).setCaretColor(fg);
@@ -63,15 +59,6 @@ public class ThemeManager {
         }
         if (c instanceof Container) {
             for (Component child : ((Container)c).getComponents()) applyRecursive(child, bg, paneBg, fg);
-        }
-    }
-
-    private void styleMenu(JMenu m, Color bg, Color fg) {
-        if (m==null) return;
-        m.setBackground(bg); m.setForeground(fg);
-        for (int i=0;i<m.getItemCount();i++) {
-            JMenuItem it = m.getItem(i);
-            if (it!=null) { it.setBackground(bg); it.setForeground(fg); }
         }
     }
 }
