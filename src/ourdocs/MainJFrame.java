@@ -1015,7 +1015,11 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
     private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
-        // TODO add your handling code here:
+        File savedFile = FileSave.saveAs(this, textArea);
+        if (savedFile != null) {
+            currentFile = savedFile;
+            statusLabel.setText("Saved: " + currentFile.getName());
+        }
     }//GEN-LAST:event_saveAsMenuItemActionPerformed
 
     private void undoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoMenuItemActionPerformed
