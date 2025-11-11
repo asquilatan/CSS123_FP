@@ -47,12 +47,7 @@ The application provides a comprehensive toolbar with the following formatting o
 ## Project Structure
 - `src/ourdocs/`: Main source code files
 - `build/`: Compiled classes (if using build system)
-- Various helper classes for:
-  - Markdown formatting
-  - Theme management
-  - Auto-save functionality
-  - Search and replace operations
-  - File handling
+- Various helper classes for: Markdown formatting, Theme management, Auto-save functionality, Search and replace operations, File handling
 
 ## Usage Tips
 - Use the toolbar buttons for quick formatting
