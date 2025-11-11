@@ -74,4 +74,8 @@ class MarkdownHelper {
     public static String convertToHtml(String markdown) {
         return MarkdownConverter.convert(markdown);
     }
+    
+    public static String convertToHtml(String markdown, boolean isDark) {
+        return MarkdownConverter.convert(markdown, isDark);
+    }
 }

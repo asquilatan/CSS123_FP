@@ -28,6 +28,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.undo.UndoManager undoManager;
     private javax.swing.Timer inactivityTimer;
     private static final int INACTIVITY_DELAY = 5 * 60 * 1000; // 5 minutes in milliseconds
+    private ThemeManager themeManager;
     
     /**
      * Creates new form NewJFrame
@@ -42,6 +43,10 @@ public class MainJFrame extends javax.swing.JFrame {
         AutoSave.startAutoSave(this, textArea, () -> currentFile, statusLabel, 60000);
         
         setupInactivityTimer();
+        
+        // Initialize theme manager and apply initial theme
+        themeManager = new ThemeManager();
+        themeManager.apply(this);
     }
     
     private void setupPreviewPane() {
@@ -78,13 +83,19 @@ public class MainJFrame extends javax.swing.JFrame {
             }
 
             private void updatePreview() {
-                String html = MarkdownHelper.convertToHtml(textArea.getText());
+                String html = MarkdownHelper.convertToHtml(textArea.getText(), themeManager.isDark());
                 previewPane.setText(html);
                 updateWordCount();
             }
         });
     }
     
+    public void updatePreview() {
+        String html = MarkdownHelper.convertToHtml(textArea.getText(), themeManager.isDark());
+        previewPane.setText(html);
+        updateWordCount();
+    }
+
     public void updateMenuState() {
         javax.swing.SwingUtilities.invokeLater(() -> {
             undoMenuItem.setEnabled(undoManager.canUndo());
@@ -200,6 +211,9 @@ public class MainJFrame extends javax.swing.JFrame {
         h5ButtonIcon = new javax.swing.JLabel();
         h6Button = new javax.swing.JPanel();
         h6ButtonIcon = new javax.swing.JLabel();
+        spacer2 = new javax.swing.JPanel();
+        darkModeButton = new javax.swing.JPanel();
+        darkModeButtonIcon = new javax.swing.JLabel();
         MenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         newMenuItem = new javax.swing.JMenuItem();
@@ -219,9 +233,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(242, 242, 242));
-        setMaximumSize(new java.awt.Dimension(800, 400));
         setMinimumSize(new java.awt.Dimension(800, 400));
-        setPreferredSize(new java.awt.Dimension(800, 400));
 
         splitPane.setBackground(new java.awt.Color(242, 242, 242));
         splitPane.setForeground(new java.awt.Color(242, 242, 242));
@@ -724,6 +736,60 @@ public class MainJFrame extends javax.swing.JFrame {
 
         formatPanel.add(h6Button);
 
+        spacer2.setBackground(new java.awt.Color(242, 242, 242));
+        spacer2.setPreferredSize(new java.awt.Dimension(40, 40));
+        spacer2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                spacer2MouseReleased(evt);
+            }
+        });
+
+        javax.swing.GroupLayout spacer2Layout = new javax.swing.GroupLayout(spacer2);
+        spacer2.setLayout(spacer2Layout);
+        spacer2Layout.setHorizontalGroup(
+            spacer2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+        spacer2Layout.setVerticalGroup(
+            spacer2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        formatPanel.add(spacer2);
+
+        darkModeButton.setBackground(new java.awt.Color(242, 242, 242));
+        darkModeButton.setPreferredSize(new java.awt.Dimension(80, 40));
+        darkModeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                darkModeButtonMouseReleased(evt);
+            }
+        });
+
+        darkModeButtonIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon14_darkmode.png"))); // NOI18N
+
+        javax.swing.GroupLayout darkModeButtonLayout = new javax.swing.GroupLayout(darkModeButton);
+        darkModeButton.setLayout(darkModeButtonLayout);
+        darkModeButtonLayout.setHorizontalGroup(
+            darkModeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 49, Short.MAX_VALUE)
+            .addGroup(darkModeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(darkModeButtonLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(darkModeButtonIcon)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        darkModeButtonLayout.setVerticalGroup(
+            darkModeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(darkModeButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(darkModeButtonLayout.createSequentialGroup()
+                    .addGap(0, 7, Short.MAX_VALUE)
+                    .addComponent(darkModeButtonIcon)
+                    .addGap(0, 8, Short.MAX_VALUE)))
+        );
+
+        formatPanel.add(darkModeButton);
+
         getContentPane().add(formatPanel, java.awt.BorderLayout.PAGE_START);
 
         fileMenu.setText("File");
@@ -952,6 +1018,84 @@ public class MainJFrame extends javax.swing.JFrame {
     );
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
+    private void darkModeButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_darkModeButtonMouseReleased
+        // Toggle the theme using the theme manager
+        themeManager.toggle(this);
+        
+        // Update all icons based on the new theme state
+        updateIconsForTheme();
+    }//GEN-LAST:event_darkModeButtonMouseReleased
+
+    private void spacer2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spacer2MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_spacer2MouseReleased
+
+    /**
+     * Updates all icons based on the current theme state.
+     * If dark theme is active, switches to dark icons (with "_d" suffix).
+     * If light theme is active, switches to light icons (without "_d" suffix).
+     */
+    private void updateIconsForTheme() {
+        if (themeManager.isDark()) {
+            // Switch to dark icons (with "_d" suffix)
+            updateIcon(boldButtonIcon, "/icons/icon01_bold_d.png");
+            updateIcon(italicButtonIcon, "/icons/icon02_italic_d.png");
+            updateIcon(strikethroughButtonIcon, "/icons/icon03_strikethrough_d.png");
+            updateIcon(inlineButtonIcon, "/icons/icon04_inline_d.png");
+            updateIcon(h1ButtonIcon, "/icons/icon05_h1_d.png");
+            updateIcon(h2ButtonIcon, "/icons/icon06_h2_d.png");
+            updateIcon(h3ButtonIcon, "/icons/icon07_h3_d.png");
+            updateIcon(h4ButtonIcon, "/icons/icon08_h4_d.png");
+            updateIcon(h5ButtonIcon, "/icons/icon09_h5_d.png");
+            updateIcon(h6ButtonIcon, "/icons/icon10_h6_d.png");
+            updateIcon(quoteButtonIcon, "/icons/icon11_blockquote_d.png");
+            updateIcon(bulletButtonIcon, "/icons/icon12_bullet_d.png");
+            updateIcon(codeButtonIcon, "/icons/icon13_codeblock_d.png");
+            updateIcon(darkModeButtonIcon, "/icons/icon14_darkmode_d.png");
+        } else {
+            // Switch to light icons (without "_d" suffix)
+            updateIcon(boldButtonIcon, "/icons/icon01_bold.png");
+            updateIcon(italicButtonIcon, "/icons/icon02_italic.png");
+            updateIcon(strikethroughButtonIcon, "/icons/icon03_strikethrough.png");
+            updateIcon(inlineButtonIcon, "/icons/icon04_inline.png");
+            updateIcon(h1ButtonIcon, "/icons/icon05_h1.png");
+            updateIcon(h2ButtonIcon, "/icons/icon06_h2.png");
+            updateIcon(h3ButtonIcon, "/icons/icon07_h3.png");
+            updateIcon(h4ButtonIcon, "/icons/icon08_h4.png");
+            updateIcon(h5ButtonIcon, "/icons/icon09_h5.png");
+            updateIcon(h6ButtonIcon, "/icons/icon10_h6.png");
+            updateIcon(quoteButtonIcon, "/icons/icon11_blockquote.png");
+            updateIcon(bulletButtonIcon, "/icons/icon12_bullet.png");
+            updateIcon(codeButtonIcon, "/icons/icon13_codeblock.png");
+            updateIcon(darkModeButtonIcon, "/icons/icon14_darkmode.png");
+        }
+    }
+    
+    /**
+     * Helper method to update a specific icon based on current theme.
+     * 
+     * @param label The JLabel containing the icon to update
+     * @param darkIconPath The path to the dark version of the icon
+     * @param lightIconPath The path to the light version of the icon
+     */
+    private void updateIcon(javax.swing.JLabel label, String iconPath) {
+        try {
+            java.net.URL imageURL = getClass().getResource(iconPath);
+            if (imageURL != null) {
+                javax.swing.ImageIcon icon = new javax.swing.ImageIcon(imageURL);
+                label.setIcon(icon);
+                // Force repaint to ensure the icon updates
+                label.revalidate();
+                label.repaint();
+            } else {
+                System.err.println("Icon not found: " + iconPath);
+            }
+        } catch (Exception e) {
+            System.err.println("Error loading icon: " + iconPath + ", Error: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -999,6 +1143,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel codeButtonIcon;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
+    private javax.swing.JPanel darkModeButton;
+    private javax.swing.JLabel darkModeButtonIcon;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JPanel formatPanel;
@@ -1033,6 +1179,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
     private javax.swing.JPanel spacer1;
+    private javax.swing.JPanel spacer2;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JLabel statusLabel;
     private javax.swing.JPanel statusPanel;
