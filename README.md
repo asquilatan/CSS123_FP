@@ -45,9 +45,17 @@ The application provides a comprehensive toolbar with the following formatting o
 - **Inactivity Timer**: Shows a reminder dialog after 5 minutes of inactivity, asking if the user is still editing
 
 ## Project Structure
-- `src/ourdocs/`: Main source code files
-- `build/`: Compiled classes (if using build system)
-- Various helper classes for: Markdown formatting, Theme management, Auto-save functionality, Search and replace operations, File handling
+`src/ourdocs/`: Main source code files
+- **Markdown formatting**: `ApplyBlockquote.java`, `ApplyBold.java`, `ApplyBulletList.java`, `ApplyCodeBlock.java`, `ApplyHeading.java`, `ApplyInlineCode.java`, `ApplyItalic.java`, `ApplyStrikethrough.java`, `MarkdownConverter.java`, `MarkdownHelper.java`
+- **Theme management**: `ThemeManager.java`
+- **Auto-save functionality**: `AutoSave.java`
+- **Search and replace operations**: `SearchReplaceDialog.java`
+- **File handling**: `FileNew.java`, `FileOpen.java`, `FileSave.java`
+- **Text operations**: `CopyAction.java`, `CutAction.java`, `PasteAction.java`, `UndoAction.java`, `RedoAction.java`, `TextHelper.java`, `LineHelper.java`
+- **Word count**: `WordCount.java`
+
+`src/icons/`: Button icons
+
 
 ## Usage Tips
 - Use the toolbar buttons for quick formatting
