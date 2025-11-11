@@ -20,7 +20,7 @@ The application provides a comprehensive toolbar with the following formatting o
 - **Inline Code** (`` `code` ``)
 - **Blockquotes** (`> quote`)
 - **Bullet Lists** (`- item`)
-- **Code Blocks** (``` ``` code ``` ```)
+- **Code Blocks** (` ``` code ``` `)
 - **Headings** (H1 to H6)
 - **Search and Replace**: Find and replace text with support for regex and case sensitivity options
 
