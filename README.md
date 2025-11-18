@@ -1,3 +1,4 @@
+![Glyph](glyph.png)
 # Glyph - Markdown Editor
 
 Glyph is a feature-rich Markdown editor application built in Java Swing. It provides a user-friendly interface for creating and editing Markdown documents with live preview functionality.
